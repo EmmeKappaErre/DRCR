@@ -5,7 +5,7 @@ import core.stdc.stdlib;
 
 import std.stdio;
 
-import rcr.reloadablemodule : ReloadableModule;
+import rcr.reloadablemodule;
 import rcr.reloadablemodule_msvc;
 import rcr.functions;
 import rcr.globals;
@@ -22,13 +22,13 @@ int main()
 																 "UnitTest_ReloadableModule_d.dll",  
 																 "UnitTest_ReloadableModule", 
                                                                  "Debug");
-    testModule.requestReload(ReloadableModule.ReloadFlag.eCompileAndReload);
+    testModule.requestReload(ReloadFlag.eCompileAndReload);
     testModule.processReload();
     g_reloadableModules["UnitTest_ReloadableModule"] = testModule;
 
     writeln(testFunction(1,2));
 
-    testModule.requestReload(ReloadableModule.ReloadFlag.eCompileAndReload);
+    testModule.requestReload(ReloadFlag.eCompileAndReload);
     testModule.processReload();
 
     writeln(testFunction(1,2));
