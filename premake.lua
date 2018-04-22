@@ -111,7 +111,7 @@ project "UnitTest"
    entrypoint ""
    dependson {"RCR","UnitTest_ReloadableModule"}
 
-   includedirs { 
+   includedirs {
       AbsolutePath("source/"),
       AbsolutePath("source/unittest/"),
       AbsolutePath("source/unittest_reloadablemodule/public/")
@@ -122,7 +122,9 @@ project "UnitTest"
       "source/unittest_reloadablemodule/public/**.di" 
    }
 
+   inlining "Default"
    symbols "On"
+   debuginfo "Mago"
    
    filter { "configurations:Debug", "platforms:x64" }
       targetdir (BinaryRelPath(ProjectName, "x64", "Debug"))
